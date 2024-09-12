@@ -1,25 +1,22 @@
 package com.example.sharered
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.sharered.authentication.presentation.OnBoardingScreen
 import com.example.sharered.ui.theme.ShareRedTheme
+import com.example.sharered.utils.NavigationHelper
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             ShareRedTheme {
-                SplashScreen()
+                val sharedPreferences = this.getSharedPreferences("Authentication", Context.MODE_PRIVATE)
+                val navController = rememberNavController()
+                NavigationHelper(navController, sharedPreferences)
             }
         }
     }
