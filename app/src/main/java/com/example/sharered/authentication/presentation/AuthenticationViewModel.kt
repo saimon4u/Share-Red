@@ -75,6 +75,14 @@ class AuthenticationViewModel @Inject constructor(
                     }
                 }
             }
+
+            is AuthEvent.NavigateTo -> {
+                _authState.update {
+                    it.copy(
+                        currentScreen = event.screen
+                    )
+                }
+            }
         }
     }
 

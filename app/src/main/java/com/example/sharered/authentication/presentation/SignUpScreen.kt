@@ -14,9 +14,9 @@ import com.example.sharered.authentication.presentation.components.AuthBox
 import com.example.sharered.authentication.presentation.components.AuthHeader
 
 @Composable
-fun SignInScreen(
+fun SignUpScreen(
     navController: NavHostController
-){
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -24,6 +24,6 @@ fun SignInScreen(
     ){
         AuthHeader()
         Spacer(modifier = Modifier.height(32.dp))
-        AuthBox(isSignIn = true, navController = navController)
+        AuthBox(isSignIn = false, navController = navController)
     }
 }

@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sharered.authentication.presentation.OnBoardingScreen
 import com.example.sharered.authentication.presentation.SignInScreen
+import com.example.sharered.authentication.presentation.SignUpScreen
 import com.example.sharered.authentication.presentation.SplashScreen
 
 @Composable
@@ -29,10 +30,13 @@ fun NavigationHelper(
             )
         }
         composable<Screen.OnBoardingScreen> {
-            OnBoardingScreen(navController = navController)
+            OnBoardingScreen(navController)
         }
         composable<Screen.SignInScreen>{
-            SignInScreen()
+            SignInScreen(navController)
+        }
+        composable<Screen.SignUpScreen> {
+            SignUpScreen(navController)
         }
     }
 }

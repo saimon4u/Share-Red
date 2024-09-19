@@ -73,6 +73,7 @@ fun SplashScreen(
         delay(4000)
         if(status == ConnectivityObserver.Status.Available){
             val isAuthenticated = pref.getBoolean("authenticated", false)
+            navController.popBackStack()
             if(isAuthenticated) navController.navigate(Screen.HomeScreen)
             else navController.navigate(Screen.OnBoardingScreen)
         }else{
@@ -83,7 +84,7 @@ fun SplashScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
+            .background(MaterialTheme.colorScheme.surface),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
